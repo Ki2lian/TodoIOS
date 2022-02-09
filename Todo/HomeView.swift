@@ -18,14 +18,6 @@ struct HomeView: View {
                     let name = item.name ?? "No name"
                     Text("Item: \(name)")
                 }*/
-            } else {
-                LoginView()
-            }
-            
-            if let errorMessage = model.errorMessage{
-                Text(errorMessage)
-                    .padding()
-                    .foregroundColor(.red)
             }
         }
         .padding()

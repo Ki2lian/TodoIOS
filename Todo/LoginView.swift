@@ -14,6 +14,11 @@ struct LoginView: View {
     @EnvironmentObject var model: ViewModel
     var body: some View {
         VStack{
+            if let errorMessage = model.errorMessage{
+                Text(errorMessage)
+                    .padding()
+                    .foregroundColor(.red)
+            }
             VStack(alignment: .leading){
                 Text("Email:")
                     .font(.system(size: 12, weight: .heavy))
