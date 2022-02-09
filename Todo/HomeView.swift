@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  Todo
 //
 //  Created by Killian on 09/02/2022.
@@ -7,23 +7,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @StateObject var model = ViewModel()
+struct HomeView: View {
+    @EnvironmentObject var model: ViewModel
     
     var body: some View {
-        TabView {
-            HomeView()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-            AccountView()
-                .tabItem {
-                    Label("Account", systemImage: "person")
-                }
-        }.environmentObject(model)
-        /*VStack{
+        VStack{
             if let user = model.user{
                 Text("Hello, \(user.uid)")
+                /*List(model.items) { item in
+                    let name = item.name ?? "No name"
+                    Text("Item: \(name)")
+                }*/
             } else {
                 LoginView()
             }
@@ -35,12 +29,11 @@ struct ContentView: View {
             }
         }
         .padding()
-        .environmentObject(model)*/
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

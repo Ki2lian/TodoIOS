@@ -23,6 +23,9 @@
 		61F4C0CF27B4071B000D032F /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 61F4C0CE27B4071B000D032F /* FirebaseFirestoreCombine-Community */; };
 		61F4C0D327B40768000D032F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0D227B40768000D032F /* ViewModel.swift */; };
 		61F4C0D627B40832000D032F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0D527B40832000D032F /* LoginView.swift */; };
+		61F4C0D927B40C96000D032F /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0D827B40C96000D032F /* Todo.swift */; };
+		61F4C0DC27B40DDA000D032F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0DB27B40DDA000D032F /* HomeView.swift */; };
+		61F4C0E227B40E1C000D032F /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0E127B40E1C000D032F /* AccountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,9 @@
 		61F4C0BA27B40639000D032F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		61F4C0D227B40768000D032F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		61F4C0D527B40832000D032F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		61F4C0D827B40C96000D032F /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		61F4C0DB27B40DDA000D032F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		61F4C0E127B40E1C000D032F /* AccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +82,12 @@
 		61F4C0A927B40566000D032F /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				61F4C0E127B40E1C000D032F /* AccountView.swift */,
 				61F4C0BA27B40639000D032F /* GoogleService-Info.plist */,
 				61F4C0AA27B40566000D032F /* TodoApp.swift */,
+				61F4C0D827B40C96000D032F /* Todo.swift */,
 				61F4C0AC27B40566000D032F /* ContentView.swift */,
+				61F4C0DB27B40DDA000D032F /* HomeView.swift */,
 				61F4C0D527B40832000D032F /* LoginView.swift */,
 				61F4C0AE27B40567000D032F /* Assets.xcassets */,
 				61F4C0B327B40567000D032F /* Info.plist */,
@@ -183,7 +192,10 @@
 				61F4C0AD27B40566000D032F /* ContentView.swift in Sources */,
 				61F4C0D327B40768000D032F /* ViewModel.swift in Sources */,
 				61F4C0D627B40832000D032F /* LoginView.swift in Sources */,
+				61F4C0DC27B40DDA000D032F /* HomeView.swift in Sources */,
+				61F4C0E227B40E1C000D032F /* AccountView.swift in Sources */,
 				61F4C0AB27B40566000D032F /* TodoApp.swift in Sources */,
+				61F4C0D927B40C96000D032F /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
