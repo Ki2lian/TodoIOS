@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var model = ViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            if let user = model.user{
+                Text("Hello, \(user.uid)")
+            } else {
+                LoginView()
+            }
+            
+            if let errorMessage = model.errorMessage{
+                Text(errorMessage)
+                    .padding()
+                    .foregroundColor(.red)
+            }
+        }
+        .padding()
+        .environmentObject(model)
     }
 }
 
