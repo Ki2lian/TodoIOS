@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import SwiftUI
+import Firebase
 import FirebaseAuth
 import FirebaseFirestore
 import FirebaseFirestoreSwift
@@ -15,15 +16,17 @@ import FirebaseFirestoreSwift
 class ViewModel: ObservableObject {
     @Published var user: User?
     @Published var errorMessage: String?
-    //@Published var items = [Item]()
+    @Published var todos = [Todo]()
+    @Published var isPresented = false
     
-    //var listener: ListenerRegistration?
-    //var subscription: AnyCancellable?
+    var listener: ListenerRegistration?
+    var subscription: AnyCancellable?
+    let collection = Firestore.firestore().collection("Todo")
     
     init() {
-        /*subscription = $user.sink(receiveValue: { [weak self] user in
+        subscription = $user.sink(receiveValue: { [weak self] user in
             self?.setListener(user: user)
-        })*/
+        })
     }
 }
 
@@ -48,21 +51,23 @@ extension ViewModel {
         }
     }
     
-    /*func snapshotListener(querySnapshot: QuerySnapshot?, error: Error?) {
+    func snapshotListener(querySnapshot: QuerySnapshot?, error: Error?) {
         if let error = error {
             errorMessage = error.localizedDescription
         }
-        
-        if let documents = querySnapshot?.documents {
-            print("Documents: \(documents)")
-            do {
-                items = try documents.compactMap({ document in
-                    let item = try document.data(as: Item.self)
-                    return item
-               })
-            } catch {
-                errorMessage = error.localizedDescription
-            }
+        collection.whereField("uid", isEqualTo: user?.uid ?? "")
+            .getDocuments() { (querySnapshot, err) in
+                if let documents = querySnapshot?.documents {
+                    print("Documents: \(documents)")
+                    do {
+                        self.todos = try documents.compactMap({ document in
+                            let todo = try document.data(as: Todo.self)
+                            return todo
+                       })
+                    } catch {
+                        self.errorMessage = error.localizedDescription
+                    }
+                }
         }
     }
     
@@ -71,16 +76,42 @@ extension ViewModel {
             existingListener.remove()
             print("Existing listener removed")
             listener = .none
-            items = []
+            todos = []
         }
 
         if let user = user {
-            let collection = Firestore.firestore().collection("FirstCollection")
             listener = collection.addSnapshotListener { [weak self] (querySnapshot, error) in
                 self?.snapshotListener(querySnapshot: querySnapshot, error: error)
             }
             print("Listener added for \(user.uid)")
         }
-    }*/
+    }
+    
+    func addTodo(title: String, content: String, isImportant: Bool){
+        let now = Date()
+        let todo = Todo(title: title, uid: user?.uid, content: content, important: isImportant, createdAt: now, updatedAt: now)
+        
+        do {
+            let _ = try collection.addDocument(from: todo)
+            print("Todo added")
+            isPresented = false
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func removeTodo(at offsets: IndexSet){
+        offsets.forEach({ index in
+            let id = todos[index].id
+            collection.document(id ?? "").delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Todo successfully removed!")
+                }
+            }
+        })
+        //todos.remove(atOffsets: offsets)
+    }
 }
 

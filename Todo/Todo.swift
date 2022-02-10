@@ -11,6 +11,7 @@ import FirebaseFirestoreSwift
 struct Todo: Identifiable, Codable{
     @DocumentID var id: String?
     var title: String?
+    var uid: String?
     var content: String?
     var important: Bool?
     var createdAt: Date?

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		61E79E0E27B5070C009E5A93 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E79E0D27B5070C009E5A93 /* TodoView.swift */; };
+		61E79E1127B513EE009E5A93 /* AddTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E79E1027B513EE009E5A93 /* AddTodoView.swift */; };
 		61F4C0AB27B40566000D032F /* TodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0AA27B40566000D032F /* TodoApp.swift */; };
 		61F4C0AD27B40566000D032F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61F4C0AC27B40566000D032F /* ContentView.swift */; };
 		61F4C0AF27B40567000D032F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61F4C0AE27B40567000D032F /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		61E79E0D27B5070C009E5A93 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
+		61E79E1027B513EE009E5A93 /* AddTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoView.swift; sourceTree = "<group>"; };
 		61F4C0A727B40566000D032F /* Todo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61F4C0AA27B40566000D032F /* TodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoApp.swift; sourceTree = "<group>"; };
 		61F4C0AC27B40566000D032F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -88,6 +92,8 @@
 				61F4C0D827B40C96000D032F /* Todo.swift */,
 				61F4C0AC27B40566000D032F /* ContentView.swift */,
 				61F4C0DB27B40DDA000D032F /* HomeView.swift */,
+				61E79E1027B513EE009E5A93 /* AddTodoView.swift */,
+				61E79E0D27B5070C009E5A93 /* TodoView.swift */,
 				61F4C0D527B40832000D032F /* LoginView.swift */,
 				61F4C0AE27B40567000D032F /* Assets.xcassets */,
 				61F4C0B327B40567000D032F /* Info.plist */,
@@ -191,6 +197,8 @@
 			files = (
 				61F4C0AD27B40566000D032F /* ContentView.swift in Sources */,
 				61F4C0D327B40768000D032F /* ViewModel.swift in Sources */,
+				61E79E1127B513EE009E5A93 /* AddTodoView.swift in Sources */,
+				61E79E0E27B5070C009E5A93 /* TodoView.swift in Sources */,
 				61F4C0D627B40832000D032F /* LoginView.swift in Sources */,
 				61F4C0DC27B40DDA000D032F /* HomeView.swift in Sources */,
 				61F4C0E227B40E1C000D032F /* AccountView.swift in Sources */,

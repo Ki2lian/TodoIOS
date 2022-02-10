@@ -9,8 +9,8 @@ import SwiftUI
 import FirebaseAuth
 
 struct LoginView: View {
-    @State var mail = ""
-    @State var password = ""
+    @State var mail = "test@test.fr"
+    @State var password = "testtest"
     @EnvironmentObject var model: ViewModel
     var body: some View {
         VStack{
@@ -30,10 +30,9 @@ struct LoginView: View {
                 SecureField("Enter password", text: $password)
             }
             
-            Button("Connect", action: {
+            Button("Log In", action: {
                 model.login(mail: mail, password: password)
             })
-            
         }
         .padding()
     }
