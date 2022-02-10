@@ -13,10 +13,16 @@ struct AccountView: View {
     var body: some View {
         VStack{
             if let user = model.user{
+                Spacer()
                 Text("Hello, \(user.email ?? "user")")
+                    .font(.title)
+                Spacer()
                 Button("Log out", action: {
                     model.logout()
                 })
+                    .buttonStyle(.bordered)
+                    .font(.title2)
+                Spacer()
             }
             
         }

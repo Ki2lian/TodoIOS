@@ -19,20 +19,49 @@ struct LoginView: View {
                     .padding()
                     .foregroundColor(.red)
             }
-            VStack(alignment: .leading){
-                Text("Email:")
-                    .font(.system(size: 12, weight: .heavy))
-                TextField("Enter an email", text: $mail)
-                    .autocapitalization(.none)
-                    .disableAutocorrection(true)
-                Text("Password:")
-                    .font(.system(size: 12, weight: .heavy))
-                SecureField("Enter password", text: $password)
+            VStack(){
+                Text("Log In")
+                    .font(.title)
+                    .padding()
+                Text("Access your Todo list")
+                    .font(.title2)
+                    .padding()
+                Spacer()
+                HStack {
+                    VStack{
+                        
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    VStack{
+                        VStack(alignment: .leading){
+                            Text("Email:")
+                                .font(.title3)
+                            TextField("Enter an email", text: $mail)
+                                .autocapitalization(.none)
+                                .disableAutocorrection(true)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                        .padding()
+                        VStack(alignment: .leading){
+                            Text("Password:")
+                                .font(.title3)
+                            SecureField("Enter password", text: $password)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                        .padding()
+                        Button("Log In", action: {
+                            model.login(mail: mail, password: password)
+                        })
+                            .buttonStyle(.bordered)
+                            .font(.title3)
+                    }
+                    VStack{
+                        
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                }
+                Spacer()
             }
-            
-            Button("Log In", action: {
-                model.login(mail: mail, password: password)
-            })
         }
         .padding()
     }

@@ -20,6 +20,7 @@ struct TodoView: View {
             Spacer()
             if todo.important ?? false{
                 Text("Important")
+                    .fontWeight(.bold)
                     .padding()
                     .background(Color.red)
             }

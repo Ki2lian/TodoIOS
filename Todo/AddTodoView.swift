@@ -20,24 +20,48 @@ struct AddTodoView: View {
             }
             .padding()
             .foregroundColor(.red)
+            
             VStack{
-                VStack(alignment: .leading){
-                    Text("Title")
-                    TextField("Title", text: $title)
-                    
-                    Text("Content")
-                    TextField("Content", text: $content)
-                    
-                    Toggle("Important", isOn: $isImportant)
+                Text("Add a new To do to your list")
+                    .font(.title)
+                    .padding()
+                Divider()
+                Spacer()
+                HStack {
+                    VStack{
+                        
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    VStack{
+                        VStack(alignment: .leading){
+                            Text("Title")
+                                .font(.title3)
+                            TextField("Title", text: $title)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                        .padding()
+                        VStack(alignment: .leading){
+                            Text("Content")
+                                .font(.title3)
+                            TextField("Content", text: $content)
+                                .textFieldStyle(.roundedBorder)
+                        }
+                        .padding()
+                        Toggle("Important", isOn: $isImportant)
+                            .padding()
+                        Button("Add"){
+                            model.addTodo(title: title, content: content, isImportant: isImportant)
+                        }
+                            .buttonStyle(.bordered)
+                            .font(.title3)
+                    }
+                    VStack{
+                        
+                    }
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                 }
-                
-                Button("Add"){
-                    model.addTodo(title: title, content: content, isImportant: isImportant)
-                }
-                .padding()
+                Spacer()
             }
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
         }
     }
 }
